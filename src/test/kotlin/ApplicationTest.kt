@@ -13,7 +13,10 @@ class ApplicationTest {
         application {
             module()
         }
-        client.get("/").apply {
+        client.get("/") {
+            parameter("movie", "Kingdom of the Planet")
+            parameter("year", "2024")
+        }.apply {
             assertEquals(HttpStatusCode.OK, status)
         }
     }
